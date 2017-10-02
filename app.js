@@ -4,9 +4,20 @@ var app = express();
 
 app.use(express.static(__dirname));
 
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/index.html');
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+  res.render('pages/index');
 });
+
+app.get('/about', function(req,res) {
+  res.render('pages/about');
+})
+
+app.get('/*/*', function(req, res) {
+  res.render('pages/categories' + req.path);
+})
 
 // listen for requests
 listener = app.listen(4000, function() {
