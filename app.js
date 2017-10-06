@@ -2,9 +2,10 @@ var express = require('express');
 
 var app = express();
 
+app.set('port', process.env.PORT || 3000);
+
 app.use(express.static(__dirname));
 
-app.set('port', (process.env.PORT || 4000));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
@@ -18,10 +19,9 @@ app.get('/about', function(req,res) {
 
 app.get('/*/*', function(req, res) {
   res.render('pages/categories' + req.path);
-})
+});
 
 // listen for requests
-
-app.listen(app.get('port'), function(err) {
-  console.log("Started listening on " + app.get('port'));
+var server = app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
