@@ -1,4 +1,3 @@
-var http = require('http');
 var express = require('express');
 
 var app = express();
@@ -21,10 +20,6 @@ app.get('/about', function(req,res) {
 app.get('/*/*', function(req, res) {
   res.render('pages/categories' + req.path);
 });
-
-setInterval(function() {
-  http.get('https://schwals.herokuapp.com/');
-}, 300000);
 
 // listen for requests
 var server = app.listen(app.get('port'), function() {
