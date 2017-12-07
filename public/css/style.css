@@ -4,6 +4,25 @@ h1, h2, p {
   font-family: 'Montserrat', serif;
   font-weight: 300; }
 
+img:hover {
+  opacity: 0.5;
+  transition: all 0.2s; }
+
+img[alt="arrow"] {
+  width: 40px;
+  margin-top: 30px; }
+  @media screen and (max-width: 767px) {
+    img[alt="arrow"] {
+      display: none; } }
+
+@media screen and (max-width: 992px) {
+  img[name="face"] {
+    width: 200px; } }
+
+@media screen and (max-width: 767px) {
+  img[name="face"] {
+    width: 300px; } }
+
 .bio {
   width: 95%;
   padding: 200px 10px 50px 10px; }
